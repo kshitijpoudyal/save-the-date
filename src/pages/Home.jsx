@@ -5,15 +5,14 @@ import DetailsSection from '../components/wedding/DetailsSection';
 import GallerySection from '../components/wedding/GallerySection';
 import FooterSection from '../components/wedding/FooterSection';
 
-const HERO_IMAGE = "/images/hero.png";
+const HERO_IMAGE = "/images/hero.jpg";
 const VENUE_IMAGE = "/images/venue.png";
 
 const GALLERY_IMAGES = [
   { src: "/images/gallery-1.png", alt: "Couple walking in garden" },
   { src: "/images/gallery-2.png", alt: "Engagement ring detail" },
   { src: "/images/gallery-3.png", alt: "Couple laughing together" },
-  { src: "/images/gallery-4.png", alt: "Sunset silhouette" },
-  { src: "/images/venue.png", alt: "Wedding venue" },
+  { src: "/images/gallery-4.png", alt: "Sunset silhouette" }
 ];
 
 export default function Home() {
