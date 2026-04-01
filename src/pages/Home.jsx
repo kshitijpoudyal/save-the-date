@@ -6,7 +6,7 @@ import GallerySection from "../components/wedding/GallerySection";
 import FooterSection from "../components/wedding/FooterSection";
 
 const HERO_IMAGE = "/images/hero.jpg";
-const VENUE_IMAGE = "/images/venue.png";
+const VENUE_IMAGE = "/images/venue.jpg";
 
 const GALLERY_IMAGES = [
   { src: "/images/gallery-1.jpg", alt: "Couple walking in garden" },

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, Clock, CalendarDays } from 'lucide-react';
+import { MapPin, CalendarDays } from 'lucide-react';
 
 function DetailCard({ icon: Icon, title, line1, line2, delay }) {
   return (
