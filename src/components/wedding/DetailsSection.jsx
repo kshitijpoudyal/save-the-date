@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, Clock, CalendarDays } from 'lucide-react';
+import { MapPin, CalendarDays } from 'lucide-react';
 
 function DetailCard({ icon: Icon, title, line1, line2, delay }) {
   return (
@@ -55,29 +55,20 @@ export default function DetailsSection({ venueImage }) {
             viewport={{ once: true }}
             className="text-center font-sans text-xs tracking-[0.3em] uppercase text-muted-foreground mb-10"
           >
-            Wedding Ceremony · June 27th
+            Wedding Ceremony
           </motion.p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 max-w-2xl mx-auto">
             <DetailCard
               icon={CalendarDays}
-              title="The Date"
-              line1="Saturday, June 27th"
-              line2=""
+              title="Date & Time"
+              line1="Saturday, June 27th at 9:00 AM"
               delay={0.1}
             />
             <DetailCard
-              icon={Clock}
-              title="The Time"
-              line1="Ceremony at 4:00 PM"
-              line2="Reception to follow"
-              delay={0.2}
-            />
-            <DetailCard
               icon={MapPin}
-              title="The Venue"
+              title="Venue"
               line1="Chitwan"
-              line2=""
-              delay={0.3}
+              delay={0.2}
             />
           </div>
         </div>
@@ -97,29 +88,21 @@ export default function DetailsSection({ venueImage }) {
             viewport={{ once: true }}
             className="text-center font-sans text-xs tracking-[0.3em] uppercase text-muted-foreground mb-10"
           >
-            Reception · June 29th
+            Reception
           </motion.p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 max-w-2xl mx-auto">
             <DetailCard
               icon={CalendarDays}
-              title="The Date"
-              line1="Monday, June 29th"
-              line2=""
+              title="Date & Time"
+              line1="Monday, June 29th at 5:00 PM"
               delay={0.1}
             />
             <DetailCard
-              icon={Clock}
-              title="The Time"
-              line1="Reception at 5:00 PM"
-              line2="Dinner & Dancing to follow"
-              delay={0.2}
-            />
-            <DetailCard
               icon={MapPin}
-              title="The Venue"
+              title="Venue"
               line1="Harshah Batika"
               line2="Balkumari, Lalitpur"
-              delay={0.3}
+              delay={0.2}
             />
           </div>
         </div>

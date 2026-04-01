@@ -18,34 +18,23 @@ export default function GallerySection({ images }) {
           </h2>
         </motion.div>
 
-        {/* Masonry-style grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-          {images.map((img, i) => {
-            const spans = [
-              'row-span-2',
-              '',
-              '',
-              'md:col-span-2',
-              '',
-            ];
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className={`overflow-hidden rounded-sm ${spans[i] || ''}`}
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out"
-                  style={{ minHeight: spans[i] === 'row-span-2' ? '100%' : '220px' }}
-                />
-              </motion.div>
-            );
-          })}
+          {images.map((img, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="overflow-hidden rounded-sm aspect-square"
+            >
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out"
+              />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
