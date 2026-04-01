@@ -1,6 +1,13 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function GallerySection({ images }) {
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const selected = selectedIndex !== null ? images[selectedIndex] : null;
+
+  const prev = (e) => { e.stopPropagation(); setSelectedIndex((selectedIndex - 1 + images.length) % images.length); };
+  const next = (e) => { e.stopPropagation(); setSelectedIndex((selectedIndex + 1) % images.length); };
   return (
     <section className="py-24 sm:py-32 px-6 bg-secondary/30">
       <div className="max-w-6xl mx-auto">
@@ -26,7 +33,8 @@ export default function GallerySection({ images }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="overflow-hidden rounded-sm aspect-square"
+              className="overflow-hidden rounded-sm aspect-square cursor-pointer"
+              onClick={() => setSelectedIndex(i)}
             >
               <img
                 src={img.src}
@@ -36,6 +44,40 @@ export default function GallerySection({ images }) {
             </motion.div>
           ))}
         </div>
+
+        {/* Lightbox */}
+        <AnimatePresence>
+          {selected && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+              onClick={() => setSelectedIndex(null)}
+            >
+                <button className="absolute top-4 right-4 text-white/80 hover:text-white" onClick={() => setSelectedIndex(null)}>
+                <X className="w-8 h-8" />
+              </button>
+              <button className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white" onClick={prev}>
+                <ChevronLeft className="w-10 h-10" />
+              </button>
+              <button className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white" onClick={next}>
+                <ChevronRight className="w-10 h-10" />
+              </button>
+              <motion.img
+                key={selectedIndex}
+                initial={{ scale: 0.85, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.85, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                src={selected.src}
+                alt={selected.alt}
+                className="max-w-full max-h-[90vh] rounded-sm object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

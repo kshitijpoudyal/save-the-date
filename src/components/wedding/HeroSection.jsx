@@ -14,6 +14,11 @@ export default function HeroSection({ heroImage }) {
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
       </div>
 
+      {/* Flares */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-white/10 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-48 h-48 rounded-full bg-amber-100/15 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/3 left-1/3 w-56 h-56 rounded-full bg-rose-100/10 blur-3xl pointer-events-none" />
+
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-end pb-20 px-6 text-center text-white">
         <motion.p

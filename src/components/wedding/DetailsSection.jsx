@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, CalendarDays } from 'lucide-react';
+import { MapPin, Clock, CalendarDays } from 'lucide-react';
 
 function DetailCard({ icon: Icon, title, line1, line2, delay }) {
   return (
@@ -31,6 +31,10 @@ export default function DetailsSection({ venueImage }) {
           className="w-full h-full object-cover opacity-10"
         />
       </div>
+
+      {/* Flares */}
+      <div className="absolute top-20 left-10 w-72 h-72 rounded-full bg-amber-100/20 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-rose-100/20 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6">
         <motion.div
