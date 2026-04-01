@@ -53,20 +53,20 @@ export default function DetailsSection({ venueImage }) {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center font-sans text-xs tracking-[0.3em] uppercase text-muted-foreground mb-10"
+            className="text-center font-serif text-xl sm:text-2xl text-foreground/70 mb-10"
           >
             Wedding Ceremony
           </motion.p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 max-w-2xl mx-auto">
             <DetailCard
               icon={CalendarDays}
-              title="The Date & Time"
+              title="Date & Time"
               line1="Saturday, June 27th at 9:00 AM"
               delay={0.1}
             />
             <DetailCard
               icon={MapPin}
-              title="The Venue"
+              title="Venue"
               line1="Chitwan"
               delay={0.2}
             />
@@ -86,20 +86,20 @@ export default function DetailsSection({ venueImage }) {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center font-sans text-xs tracking-[0.3em] uppercase text-muted-foreground mb-10"
+            className="text-center font-serif text-xl sm:text-2xl text-foreground/70 mb-10"
           >
             Reception
           </motion.p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 max-w-2xl mx-auto">
             <DetailCard
               icon={CalendarDays}
-              title="The Date & Time"
+              title="Date & Time"
               line1="Monday, June 29th at 5:00 PM"
               delay={0.1}
             />
             <DetailCard
               icon={MapPin}
-              title="The Venue"
+              title="Venue"
               line1="Harshah Batika"
               line2="Balkumari, Lalitpur"
               delay={0.2}
