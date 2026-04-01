@@ -62,7 +62,7 @@ export default function DetailsSection({ venueImage }) {
               icon={CalendarDays}
               title="The Date"
               line1="Saturday, June 27th"
-              line2="Two Thousand & Twenty-Six"
+              line2=""
               delay={0.1}
             />
             <DetailCard
@@ -75,8 +75,8 @@ export default function DetailsSection({ venueImage }) {
             <DetailCard
               icon={MapPin}
               title="The Venue"
-              line1="The Garden Estate"
-              line2="123 Rose Lane, Napa Valley, CA"
+              line1="Chitwan"
+              line2=""
               delay={0.3}
             />
           </div>
@@ -104,21 +104,21 @@ export default function DetailsSection({ venueImage }) {
               icon={CalendarDays}
               title="The Date"
               line1="Monday, June 29th"
-              line2="Two Thousand & Twenty-Six"
+              line2=""
               delay={0.1}
             />
             <DetailCard
               icon={Clock}
               title="The Time"
-              line1="Reception at 7:00 PM"
+              line1="Reception at 5:00 PM"
               line2="Dinner & Dancing to follow"
               delay={0.2}
             />
             <DetailCard
               icon={MapPin}
               title="The Venue"
-              line1="The Garden Estate"
-              line2="123 Rose Lane, Napa Valley, CA"
+              line1="Harshah Batika"
+              line2="Balkumari, Lalitpur"
               delay={0.3}
             />
           </div>
