@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, CalendarDays } from 'lucide-react';
+import { MapPin, Clock, CalendarDays } from 'lucide-react';
 
 function DetailCard({ icon: Icon, title, line1, line2, delay }) {
   return (
@@ -14,8 +14,8 @@ function DetailCard({ icon: Icon, title, line1, line2, delay }) {
         <Icon className="w-5 h-5 text-primary" />
       </div>
       <h3 className="font-serif text-xl sm:text-2xl font-medium text-foreground mb-3">{title}</h3>
-      <p className="font-sans text-sm text-muted-foreground leading-relaxed">{line1}</p>
-      {line2 && <p className="font-sans text-sm text-muted-foreground leading-relaxed">{line2}</p>}
+      <p className="font-sans text-sm text-foreground/80 leading-relaxed">{line1}</p>
+      {line2 && <p className="font-sans text-sm text-foreground/80 leading-relaxed">{line2}</p>}
     </motion.div>
   );
 }
@@ -60,13 +60,13 @@ export default function DetailsSection({ venueImage }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 max-w-2xl mx-auto">
             <DetailCard
               icon={CalendarDays}
-              title="Date & Time"
+              title="The Date & Time"
               line1="Saturday, June 27th at 9:00 AM"
               delay={0.1}
             />
             <DetailCard
               icon={MapPin}
-              title="Venue"
+              title="The Venue"
               line1="Chitwan"
               delay={0.2}
             />
@@ -93,13 +93,13 @@ export default function DetailsSection({ venueImage }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 max-w-2xl mx-auto">
             <DetailCard
               icon={CalendarDays}
-              title="Date & Time"
+              title="The Date & Time"
               line1="Monday, June 29th at 5:00 PM"
               delay={0.1}
             />
             <DetailCard
               icon={MapPin}
-              title="Venue"
+              title="The Venue"
               line1="Harshah Batika"
               line2="Balkumari, Lalitpur"
               delay={0.2}
