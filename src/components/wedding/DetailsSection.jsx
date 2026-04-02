@@ -69,7 +69,7 @@ export default function DetailsSection({ venueImage }) {
           <div className="h-px flex-1 bg-foreground/40" />
         </div>
 
-        {/* Reception */
+        {/* Reception */}
         <EventCard
           type="Wedding Reception"
           date="Monday, 29 June 2026"
