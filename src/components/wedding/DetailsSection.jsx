@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-function EventCard({ type, date, time, venue, delay }) {
+function EventCard({ type, date, time, venue, venueUrl, delay }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -12,7 +12,11 @@ function EventCard({ type, date, time, venue, delay }) {
       <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-muted-foreground">{type}</p>
       <p className="font-serif text-2xl sm:text-3xl text-foreground">{date}</p>
       <p className="font-serif text-xl sm:text-2xl text-foreground">{time}</p>
-      <p className="font-serif text-xl sm:text-2xl text-foreground">{venue}</p>
+      {venueUrl ? (
+        <a href={venueUrl} target="_blank" rel="noopener noreferrer" className="font-serif text-xl sm:text-2xl text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity">{venue}</a>
+      ) : (
+        <p className="font-serif text-xl sm:text-2xl text-foreground">{venue}</p>
+      )}
     </motion.div>
   );
 }
@@ -59,6 +63,7 @@ export default function DetailsSection({ venueImage }) {
           date="Saturday, 27 June 2026"
           time="9:00 AM"
           venue="Chitwan"
+          venueUrl="https://www.google.com/maps/search/?api=1&query=Chitwan,+Nepal"
           delay={0.1}
         />
 
@@ -75,6 +80,7 @@ export default function DetailsSection({ venueImage }) {
           date="Monday, 29 June 2026"
           time="5:00 PM"
           venue="Harshah Batika, Balkumari, Lalitpur"
+          venueUrl="https://www.google.com/maps/search/?api=1&query=Harshah+Batika,+Balkumari,+Lalitpur,+Nepal"
           delay={0.1}
         />
       </div>
