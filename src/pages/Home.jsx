@@ -4,6 +4,7 @@ import CountdownSection from "../components/wedding/CountdownSection";
 import DetailsSection from "../components/wedding/DetailsSection";
 import GallerySection from "../components/wedding/GallerySection";
 import FooterSection from "../components/wedding/FooterSection";
+import MusicPlayer from "../components/wedding/MusicPlayer";
 
 const HERO_IMAGE = "/images/hero.jpg";
 const VENUE_IMAGE = "/images/venue.jpg";
@@ -26,6 +27,7 @@ export default function Home() {
       <DetailsSection venueImage={VENUE_IMAGE} />
       <GallerySection images={GALLERY_IMAGES} />
       <FooterSection />
+      <MusicPlayer src="/music/background.mp3" />
     </div>
   );
 }
