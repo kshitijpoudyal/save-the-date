@@ -1,10 +1,37 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function GallerySection({ images }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const selected = selectedIndex !== null ? images[selectedIndex] : null;
+  
+  // Swipe handling
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    const threshold = 50; // Minimum swipe distance
+    
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        // Swipe left -> next image
+        setSelectedIndex((selectedIndex + 1) % images.length);
+      } else {
+        // Swipe right -> previous image
+        setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
+      }
+    }
+  };
 
   const prev = (e) => { e.stopPropagation(); setSelectedIndex((selectedIndex - 1 + images.length) % images.length); };
   const next = (e) => { e.stopPropagation(); setSelectedIndex((selectedIndex + 1) % images.length); };
@@ -54,6 +81,9 @@ export default function GallerySection({ images }) {
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
               onClick={() => setSelectedIndex(null)}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
                 <button className="absolute top-4 right-4 text-white/80 hover:text-white" onClick={() => setSelectedIndex(null)}>
                 <X className="w-8 h-8" />
@@ -72,8 +102,9 @@ export default function GallerySection({ images }) {
                 transition={{ duration: 0.3 }}
                 src={selected.src}
                 alt={selected.alt}
-                className="max-w-full max-h-[90vh] rounded-sm object-contain"
+                className="max-w-full max-h-[90vh] rounded-sm object-contain select-none"
                 onClick={(e) => e.stopPropagation()}
+                draggable={false}
               />
             </motion.div>
           )}

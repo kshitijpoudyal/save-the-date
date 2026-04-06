@@ -13,25 +13,44 @@ export default function MusicPlayer({ src = "/music/background.mp3" }) {
     audio.loop = true;
     audio.volume = 0.3;
 
-    // Try to autoplay immediately
-    const tryAutoplay = () => {
+    let hasStarted = false;
+
+    const startAudio = () => {
+      if (hasStarted) return;
+      hasStarted = true;
+      
       audio.play().then(() => {
         setIsPlaying(true);
-      }).catch((err) => {
-        console.log("Autoplay blocked, waiting for interaction:", err);
-        // If autoplay blocked, play on first interaction
-        const handleFirstInteraction = () => {
-          audio.play().then(() => {
-            setIsPlaying(true);
-          }).catch((e) => console.log("Play prevented:", e));
-        };
-        window.addEventListener("scroll", handleFirstInteraction, { once: true });
-        window.addEventListener("click", handleFirstInteraction, { once: true });
-        window.addEventListener("touchstart", handleFirstInteraction, { once: true });
+        removeListeners();
+      }).catch((e) => {
+        hasStarted = false;
+        console.log("Play prevented:", e);
       });
     };
 
-    tryAutoplay();
+    const removeListeners = () => {
+      window.removeEventListener("scroll", startAudio);
+      window.removeEventListener("click", startAudio);
+      window.removeEventListener("touchstart", startAudio);
+      window.removeEventListener("touchend", startAudio);
+      window.removeEventListener("keydown", startAudio);
+    };
+
+    // Try to autoplay immediately
+    audio.play().then(() => {
+      setIsPlaying(true);
+      hasStarted = true;
+    }).catch((err) => {
+      console.log("Autoplay blocked, waiting for interaction:", err);
+      // If autoplay blocked, play on first interaction (desktop & mobile)
+      window.addEventListener("scroll", startAudio, { passive: true });
+      window.addEventListener("click", startAudio, { passive: true });
+      window.addEventListener("touchstart", startAudio, { passive: true });
+      window.addEventListener("touchend", startAudio, { passive: true });
+      window.addEventListener("keydown", startAudio, { passive: true });
+    });
+
+    return removeListeners;
   }, []);
 
   const toggleMusic = () => {
