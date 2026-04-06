@@ -62,8 +62,8 @@ export default function DetailsSection({ venueImage }) {
           type="Wedding Ceremony"
           date="Saturday, 27 June 2026"
           time="9:00 AM"
-          venue="Chitwan"
-          venueUrl="https://www.google.com/maps/search/?api=1&query=Chitwan,+Nepal"
+          venue="Dhawan, Chitwan"
+          venueUrl="https://www.google.com/maps/search/?api=1&query=Dhawan,+Chitwan,+Nepal"
           delay={0.1}
         />
 
