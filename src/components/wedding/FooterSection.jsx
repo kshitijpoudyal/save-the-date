@@ -33,6 +33,18 @@ export default function FooterSection() {
             More details, including RSVP information,<br />
             will follow in our formal invitation.
           </p>
+
+          <p className="font-sans text-xs opacity-30 mt-12">
+            Powered by{' '}
+            <a
+              href="https://kshitijstudio.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:opacity-60 transition-opacity"
+            >
+              KshitijStudio
+            </a>
+          </p>
         </motion.div>
       </div>
     </section>
